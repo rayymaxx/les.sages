@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>For Therapists — Therape</title>
+<meta name="description" content="Join Therape's provider network: expand your reach, simplify scheduling and billing, and earn through a transparent flat-fee model." />
+<link rel="icon" type="image/png" href="assets/favicon.png" />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          paper: '#F2F5F0',
+          cream: '#FBF8F3',
+          ink: '#1F3B3A',
+          sage: '#7A9B76',
+          sagedeep: '#4F6B4C',
+          clay: '#C98B7A',
+          ochre: '#D4A24C',
+          lavender: '#B7A8C9',
+        },
+        fontFamily: {
+          display: ['Georgia', 'Iowan Old Style', 'Palatino Linotype', 'serif'],
+          body: ['Poppins', 'sans-serif'],
+        },
+      },
+    },
+  };
+</script>
+<style>
+  [data-animate] { opacity: 0; transform: translateY(14px); transition: opacity 900ms cubic-bezier(.22,.61,.36,1), transform 900ms cubic-bezier(.22,.61,.36,1); }
+  [data-animate].is-visible { opacity: 1; transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce) {
+    [data-animate] { opacity: 1; transform: none; transition: none; }
+  }
+  #mobile-menu { transition: opacity 300ms ease, transform 300ms ease; }
+  #mobile-menu.open { opacity: 1; transform: translateY(0); pointer-events: auto; }
+</style>
+</head>
+<body class="bg-paper text-ink font-body antialiased">
+
+
+
+  <!-- NAV -->
+  <header class="sticky top-0 z-50 bg-paper/95 backdrop-blur border-b border-ink/10">
+    <nav class="max-w-6xl mx-auto px-5 sm:px-8 py-4 flex items-center justify-between">
+      <a href="home.html" class="flex items-center gap-2">
+        <img src="assets/favicon.png" class="w-8 h-8" />
+        <span class="font-display text-xl tracking-tight">Therape</span>
+      </a>
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-ink/80">
+        <a href="home.html" class="hover:text-sagedeep transition-colors">Home</a>
+        <a href="how-it-works.html" class="hover:text-sagedeep transition-colors">How It Works</a>
+        <a href="for-therapists.html" class="text-ink">For Therapists</a>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="#apply" class="hidden md:inline-flex rounded-full bg-sagedeep text-cream text-sm font-medium px-4 py-2 hover:bg-ink transition-colors duration-300">Apply to Join</a>
+        <button id="hamburger" class="md:hidden flex flex-col gap-1.5 p-2" aria-label="Toggle menu">
+          <span class="block w-6 h-0.5 bg-ink transition-all duration-300"></span>
+          <span class="block w-6 h-0.5 bg-ink transition-all duration-300"></span>
+          <span class="block w-4 h-0.5 bg-ink transition-all duration-300"></span>
+        </button>
+      </div>
+    </nav>
+    <div id="mobile-menu" class="md:hidden opacity-0 -translate-y-2 pointer-events-none absolute w-full bg-paper border-b border-ink/10 px-5 pb-6 pt-2 flex flex-col gap-4 shadow-lg">
+      <a href="home.html" class="text-sm font-medium text-ink/70 py-2 border-b border-ink/10 hover:text-sagedeep transition-colors">Home</a>
+      <a href="how-it-works.html" class="text-sm font-medium text-ink/70 py-2 border-b border-ink/10 hover:text-sagedeep transition-colors">How It Works</a>
+      <a href="for-therapists.html" class="text-sm font-semibold text-ink py-2 border-b border-ink/10">For Therapists</a>
+      <a href="#apply" class="mt-1 rounded-full bg-sagedeep text-cream text-sm font-medium px-4 py-3 text-center hover:bg-ink transition-colors duration-300">Apply to Join</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="max-w-6xl mx-auto px-5 sm:px-8 pt-16 pb-14 grid md:grid-cols-12 gap-10 items-center relative">
+    <img src="assets/icon - 3.png" class="pointer-events-none select-none absolute top-6 right-2 w-9 rotate-[15deg] hidden sm:block" />
+    <img src="assets/icon - 7.png" class="pointer-events-none select-none absolute bottom-4 left-0 w-8 rotate-[-12deg] hidden sm:block" />
+    <div class="md:col-span-7">
+      <p data-animate class="uppercase tracking-[0.2em] text-xs font-semibold text-sagedeep mb-4">For licensed practitioners</p>
+      <h1 data-animate class="font-display text-4xl sm:text-5xl leading-tight max-w-2xl">Your caseload, without the paperwork holding it back.</h1>
+      <p data-animate class="mt-5 max-w-xl text-ink/75 leading-relaxed">
+        Therape brings clients to you from districts you couldn't otherwise reach, and clears the scheduling and billing work off your desk so more of your time goes to the room, not the receipt book.
+      </p>
+    </div>
+    <div data-animate style="transition-delay:150ms" class="md:col-span-5">
+      <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?w=600&auto=format&fit=crop&q=80" alt="Open notebook with a pen" class="w-full h-auto max-w-xs mx-auto rounded-3xl object-cover shadow-lg" style="aspect-ratio:4/3" />
+    </div>
+  </section>
+
+  <!-- VALUE PROP -->
+  <section class="bg-cream border-y border-ink/10 py-16 sm:py-20 relative">
+    <img src="assets/icon-1.png" class="pointer-events-none select-none absolute top-4 left-3 w-9 rotate-[-18deg] hidden sm:block" />
+    <img src="assets/icon - 5.png" class="pointer-events-none select-none absolute bottom-4 right-3 w-8 rotate-[10deg] hidden sm:block" />
+    <div class="max-w-6xl mx-auto px-5 sm:px-8 grid sm:grid-cols-3 gap-6">
+      <div data-animate class="rounded-3xl bg-paper p-7 shadow-sm">
+        <div class="w-11 h-11 rounded-xl bg-sage/30 flex items-center justify-center mb-5">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4F6B4C" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <p class="font-semibold mb-2">Reach peri-urban districts</p>
+        <p class="text-sm text-ink/70 leading-relaxed">Our USSD sector-matching sends you clients from areas with no walk-in access to a therapist today, without you needing a second office.</p>
+      </div>
+      <div data-animate style="transition-delay:100ms" class="rounded-3xl bg-paper p-7 shadow-sm">
+        <div class="w-11 h-11 rounded-xl bg-clay/30 flex items-center justify-center mb-5">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C98B7A" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+        </div>
+        <p class="font-semibold mb-2">Automated scheduling</p>
+        <p class="text-sm text-ink/70 leading-relaxed">Clients book directly into your open slots, whether they arrive from the Web App or an in-person booking code. No back-and-forth calls.</p>
+      </div>
+      <div data-animate style="transition-delay:200ms" class="rounded-3xl bg-paper p-7 shadow-sm">
+        <div class="w-11 h-11 rounded-xl bg-ochre/30 flex items-center justify-center mb-5">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B4842E" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+        </div>
+        <p class="font-semibold mb-2">Built-in billing</p>
+        <p class="text-sm text-ink/70 leading-relaxed">Session fees are collected and settled automatically on a flat model — no chasing invoices, no manual reconciliation.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINANCIAL TRANSPARENCY -->
+  <section class="py-16 sm:py-20 relative">
+    <img src="assets/icon -2.png" class="pointer-events-none select-none absolute top-6 right-4 w-10 rotate-[22deg] hidden sm:block" />
+    <img src="assets/icon - 6.png" class="pointer-events-none select-none absolute bottom-6 left-2 w-9 rotate-[-8deg] hidden sm:block" />
+    <div class="max-w-6xl mx-auto px-5 sm:px-8">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div data-animate>
+          <p class="uppercase tracking-[0.2em] text-xs font-semibold text-sagedeep mb-4">Financial transparency</p>
+          <h2 class="font-display text-3xl sm:text-4xl leading-snug">One flat fee. No surprises, for you or your client.</h2>
+          <p class="mt-5 text-ink/75 leading-relaxed">
+            Every session on Therape is priced the same way, regardless of channel: a flat <span class="font-semibold text-ink">RWF 8,000</span>. It's deliberately simple — clients know what to expect before they book, and you know what to expect before you accept.
+          </p>
+          <p class="mt-4 text-ink/75 leading-relaxed">
+            Sessions booked by low-income clients through the offline stream can qualify for a subsidized rate; the difference is covered by Therape's partner fund, not deducted from your payout.
+          </p>
+        </div>
+
+        <div data-animate style="transition-delay:120ms" class="rounded-3xl bg-ink text-cream p-8 sm:p-9">
+          <p class="text-sm text-cream/60 mb-1">Standard session fee</p>
+          <p class="font-display text-5xl mb-6">RWF 8,000</p>
+          <div class="space-y-4">
+            <div class="flex items-center justify-between border-t border-cream/20 pt-4">
+              <p class="text-sm text-cream/80">Your payout</p>
+              <p class="font-semibold">RWF 6,000</p>
+            </div>
+            <div class="flex items-center justify-between">
+              <p class="text-sm text-cream/80">Platform &amp; infrastructure</p>
+              <p class="font-semibold">RWF 1,500</p>
+            </div>
+            <div class="flex items-center justify-between">
+              <p class="text-sm text-cream/80">Provider support fund</p>
+              <p class="font-semibold">RWF 500</p>
+            </div>
+          </div>
+          <p class="mt-6 text-xs text-cream/50 leading-relaxed">Payouts settle weekly to mobile money or bank transfer, with a full session-by-session statement in your dashboard.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPLICATION FORM -->
+  <section id="apply" class="bg-cream border-y border-ink/10 py-16 sm:py-20 scroll-mt-24 relative">
+    <img src="assets/icon - 7.png" class="pointer-events-none select-none absolute top-8 left-3 w-8 rotate-[12deg] hidden sm:block" />
+    <img src="assets/icon - 3.png" class="pointer-events-none select-none absolute bottom-8 right-3 w-9 rotate-[-20deg] hidden sm:block" />
+    <div class="max-w-3xl mx-auto px-5 sm:px-8">
+      <p data-animate class="uppercase tracking-[0.2em] text-xs font-semibold text-sagedeep mb-4 text-center">Join the network</p>
+      <h2 data-animate class="font-display text-3xl sm:text-4xl mb-3 text-center">Apply to become a Therape provider</h2>
+      <p data-animate class="text-ink/70 text-center mb-10">Applications are reviewed within 5 business days. You'll need a copy of your practicing license on hand.</p>
+
+      <form data-animate class="bg-paper rounded-3xl p-7 sm:p-9 shadow-sm space-y-6" onsubmit="return handleApply(event)">
+        <div class="grid sm:grid-cols-2 gap-6">
+          <div>
+            <label for="fullName" class="block text-sm font-semibold mb-2">Full name</label>
+            <input id="fullName" type="text" required placeholder="Jane Uwimana"
+              class="w-full rounded-xl border border-ink/15 bg-cream px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-sage transition-shadow" />
+          </div>
+          <div>
+            <label for="license" class="block text-sm font-semibold mb-2">License number</label>
+            <input id="license" type="text" required placeholder="RMDC-2024-0000"
+              class="w-full rounded-xl border border-ink/15 bg-cream px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-sage transition-shadow" />
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-6">
+          <div>
+            <label for="specialty" class="block text-sm font-semibold mb-2">Primary specialty</label>
+            <select id="specialty" required
+              class="w-full rounded-xl border border-ink/15 bg-cream px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-sage transition-shadow">
+              <option value="">Select one</option>
+              <option>Trauma &amp; PTSD care</option>
+              <option>Adolescent &amp; youth counseling</option>
+              <option>Group facilitation</option>
+              <option>Psychiatric care</option>
+              <option>General clinical psychology</option>
+            </select>
+          </div>
+          <div>
+            <label for="district" class="block text-sm font-semibold mb-2">Base district</label>
+            <input id="district" type="text" required placeholder="e.g. Huye"
+              class="w-full rounded-xl border border-ink/15 bg-cream px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-sage transition-shadow" />
+          </div>
+        </div>
+
+        <div>
+          <label for="phone" class="block text-sm font-semibold mb-2">Phone number</label>
+          <input id="phone" type="tel" required placeholder="+250 7__ ___ ___"
+            class="w-full rounded-xl border border-ink/15 bg-cream px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-sage transition-shadow" />
+        </div>
+
+        <div>
+          <label for="note" class="block text-sm font-semibold mb-2">Anything else we should know?</label>
+          <textarea id="note" rows="3" placeholder="Languages, availability, prior USSD or telehealth experience..."
+            class="w-full rounded-xl border border-ink/15 bg-cream px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-sage transition-shadow"></textarea>
+        </div>
+
+        <label class="flex items-start gap-3 text-sm text-ink/70">
+          <input type="checkbox" required class="mt-1 rounded border-ink/30 text-sagedeep focus:ring-sage" />
+          I confirm my license is current and I agree to Therape's confidentiality and provider conduct standards.
+        </label>
+
+        <button type="submit" class="w-full rounded-full bg-sagedeep text-cream font-medium py-3.5 hover:bg-ink transition-colors duration-300">
+          Submit application
+        </button>
+        <p id="formConfirm" class="hidden text-sm text-sagedeep text-center font-medium">Thank you — your application has been received. We'll be in touch within 5 business days.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-ink text-cream/70 pt-14 pb-8">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8">
+      <div class="grid sm:grid-cols-3 gap-10 pb-10 border-b border-cream/10">
+        <div>
+          <div class="flex items-center gap-2 mb-3">
+            <img src="assets/favicon.png" class="w-7 h-7" />
+            <p class="font-display text-xl text-cream">Therape</p>
+          </div>
+          <p class="text-sm leading-relaxed max-w-xs">Mental health care that meets you where you are — online or offline, in confidence.</p>
+          <p class="text-xs mt-4 text-cream/40">Built by Les Sages · Kigali, Rwanda</p>
+        </div>
+        <div>
+          <p class="text-xs uppercase tracking-widest font-semibold text-cream/40 mb-4">Navigate</p>
+          <ul class="space-y-2 text-sm">
+            <li><a href="home.html" class="hover:text-cream transition-colors">Home</a></li>
+            <li><a href="how-it-works.html" class="hover:text-cream transition-colors">How It Works</a></li>
+            <li><a href="for-therapists.html" class="hover:text-cream transition-colors">For Therapists</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-xs uppercase tracking-widest font-semibold text-cream/40 mb-4">Legal & Safety</p>
+          <ul class="space-y-2 text-sm">
+            <li><span class="cursor-default">Privacy Policy</span></li>
+            <li><span class="cursor-default">Terms of Use</span></li>
+            <li><span class="cursor-default">Provider Code of Conduct</span></li>
+          </ul>
+          <p class="mt-5 text-xs text-cream/50 leading-relaxed">If you are in immediate danger, please contact local emergency services or dial <span class="text-cream font-semibold">912</span>.</p>
+        </div>
+      </div>
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-cream/35">
+        <p>&copy; <span id="yr"></span> Therape. All rights reserved.</p>
+        <p>Designed &amp; developed by <span class="text-cream/60 font-medium">Les Sages</span></p>
+      </div>
+    </div>
+  </footer>
+  <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+
+<script>
+
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('[data-animate]').forEach((el) => observer.observe(el));
+
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const bars = hamburger.querySelectorAll('span');
+  hamburger.addEventListener('click', () => {
+    const open = mobileMenu.classList.toggle('open');
+    bars[0].style.transform = open ? 'translateY(8px) rotate(45deg)' : '';
+    bars[1].style.transform = open ? 'translateY(-8px) rotate(-45deg)' : '';
+    bars[2].style.opacity = open ? '0' : '1';
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+    bars.forEach(b => { b.style.transform = ''; b.style.opacity = '1'; });
+  }));
+
+  function handleApply(e) {
+    e.preventDefault();
+    document.getElementById('formConfirm').classList.remove('hidden');
+    e.target.reset();
+    return false;
+  }
+</script>
+</body>
+</html>

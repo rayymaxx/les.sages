@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>How It Works — Therape</title>
+<meta name="description" content="Two ways into Therape: dial in offline via USSD, or sign in online through the Web App." />
+<link rel="icon" type="image/png" href="assets/favicon.png" />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          paper: '#F2F5F0',
+          cream: '#FBF8F3',
+          ink: '#1F3B3A',
+          sage: '#7A9B76',
+          sagedeep: '#4F6B4C',
+          clay: '#C98B7A',
+          ochre: '#D4A24C',
+          lavender: '#B7A8C9',
+        },
+        fontFamily: {
+          display: ['Georgia', 'Iowan Old Style', 'Palatino Linotype', 'serif'],
+          body: ['Poppins', 'sans-serif'],
+        },
+      },
+    },
+  };
+</script>
+<style>
+  [data-animate] { opacity: 0; transform: translateY(14px); transition: opacity 900ms cubic-bezier(.22,.61,.36,1), transform 900ms cubic-bezier(.22,.61,.36,1); }
+  [data-animate].is-visible { opacity: 1; transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce) {
+    [data-animate] { opacity: 1; transform: none; transition: none; }
+  }
+  .modal-panel { transform: translateY(24px); opacity: 0; transition: transform 500ms cubic-bezier(.22,.61,.36,1), opacity 500ms ease; }
+  .modal-open .modal-panel { transform: translateY(0); opacity: 1; }
+  .plane-track { stroke-dasharray: 8 6; }
+  @keyframes fly {
+    0%   { offset-distance: 0%; }
+    100% { offset-distance: 100%; }
+  }
+  .plane-clay {
+    offset-path: path('M 40 32 C 120 32 160 32 240 32 C 320 32 360 32 440 32 C 520 32 560 32 640 32 C 720 32 760 32 840 32');
+    animation: fly 4s linear infinite;
+    position: absolute;
+    top: 0; left: 0;
+  }
+  .plane-sage {
+    offset-path: path('M 40 32 C 200 32 280 32 420 32 C 560 32 640 32 800 32');
+    animation: fly 4s linear infinite;
+    position: absolute;
+    top: 0; left: 0;
+  }
+  #mobile-menu { transition: opacity 300ms ease, transform 300ms ease; }
+  #mobile-menu.open { opacity: 1; transform: translateY(0); pointer-events: auto; }
+</style>
+</head>
+<body class="bg-paper text-ink font-body antialiased">
+
+
+
+  <!-- NAV -->
+  <header class="sticky top-0 z-50 bg-paper/95 backdrop-blur border-b border-ink/10">
+    <nav class="max-w-6xl mx-auto px-5 sm:px-8 py-4 flex items-center justify-between">
+      <a href="home.html" class="flex items-center gap-2">
+        <img src="assets/favicon.png" class="w-8 h-8" />
+        <span class="font-display text-xl tracking-tight">Therape</span>
+      </a>
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-ink/80">
+        <a href="home.html" class="hover:text-sagedeep transition-colors">Home</a>
+        <a href="how-it-works.html" class="text-ink">How It Works</a>
+        <a href="for-therapists.html" class="hover:text-sagedeep transition-colors">For Therapists</a>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="#offline" class="hidden md:inline-flex rounded-full bg-sagedeep text-cream text-sm font-medium px-4 py-2 hover:bg-ink transition-colors duration-300">Find Support</a>
+        <button id="hamburger" class="md:hidden flex flex-col gap-1.5 p-2" aria-label="Toggle menu">
+          <span class="block w-6 h-0.5 bg-ink transition-all duration-300"></span>
+          <span class="block w-6 h-0.5 bg-ink transition-all duration-300"></span>
+          <span class="block w-4 h-0.5 bg-ink transition-all duration-300"></span>
+        </button>
+      </div>
+    </nav>
+    <div id="mobile-menu" class="md:hidden opacity-0 -translate-y-2 pointer-events-none absolute w-full bg-paper border-b border-ink/10 px-5 pb-6 pt-2 flex flex-col gap-4 shadow-lg">
+      <a href="home.html" class="text-sm font-medium text-ink/70 py-2 border-b border-ink/10 hover:text-sagedeep transition-colors">Home</a>
+      <a href="how-it-works.html" class="text-sm font-semibold text-ink py-2 border-b border-ink/10">How It Works</a>
+      <a href="for-therapists.html" class="text-sm font-medium text-ink/70 py-2 border-b border-ink/10 hover:text-sagedeep transition-colors">For Therapists</a>
+      <a href="#offline" class="mt-1 rounded-full bg-sagedeep text-cream text-sm font-medium px-4 py-3 text-center hover:bg-ink transition-colors duration-300">Find Support</a>
+    </div>
+  </header>
+
+  <!-- INTRO -->
+  <section class="max-w-6xl mx-auto px-5 sm:px-8 pt-16 pb-10 text-center relative">
+    <img src="assets/icon - 5.png" class="pointer-events-none select-none absolute top-6 left-4 w-9 rotate-[-14deg] hidden sm:block" />
+    <img src="assets/icon - 6.png" class="pointer-events-none select-none absolute top-6 right-4 w-8 rotate-[18deg] hidden sm:block" />
+    <p data-animate class="uppercase tracking-[0.2em] text-xs font-semibold text-sagedeep mb-4">The dual engine</p>
+    <h1 data-animate class="font-display text-4xl sm:text-5xl leading-tight max-w-2xl mx-auto">One platform, two doors in.</h1>
+    <p data-animate class="mt-5 max-w-xl mx-auto text-ink/75 leading-relaxed">
+      Whichever door you take, you reach the same standard of vetted, confidential care. Choose the track that fits your phone, your network, and your comfort.
+    </p>
+  </section>
+
+  <!-- COMPARATIVE TABS/ANCHORS -->
+  <section class="max-w-6xl mx-auto px-5 sm:px-8 pb-6">
+    <div class="grid sm:grid-cols-2 gap-4">
+      <a href="#offline" data-animate class="rounded-3xl bg-clay/15 hover:bg-clay/25 p-6 flex items-center justify-between transition-colors duration-500">
+        <div>
+          <p class="font-display text-xl">Offline — USSD</p>
+          <p class="text-sm text-ink/70 mt-1">No smartphone, no data, no app store.</p>
+        </div>
+        <span class="text-clay text-2xl">→</span>
+      </a>
+      <a href="#online" data-animate style="transition-delay:100ms" class="rounded-3xl bg-sage/15 hover:bg-sage/25 p-6 flex items-center justify-between transition-colors duration-500">
+        <div>
+          <p class="font-display text-xl">Online — Web App</p>
+          <p class="text-sm text-ink/70 mt-1">Browse, book, and message from any browser.</p>
+        </div>
+        <span class="text-sagedeep text-2xl">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- OFFLINE STREAM -->
+  <section id="offline" class="py-16 sm:py-20 scroll-mt-24 relative">
+    <img src="assets/icon-1.png" class="pointer-events-none select-none absolute top-8 right-3 w-9 rotate-[20deg] hidden sm:block" />
+    <img src="assets/icon -2.png" class="pointer-events-none select-none absolute bottom-6 left-2 w-8 rotate-[-10deg] hidden sm:block" />
+    <div class="max-w-6xl mx-auto px-5 sm:px-8">
+
+      <div class="flex items-center gap-3 mb-3">
+        <span class="w-2.5 h-2.5 rounded-full bg-clay"></span>
+        <h2 class="font-display text-2xl sm:text-3xl">The Offline Stream</h2>
+      </div>
+      <p class="text-sm text-ink/60 mb-10 max-w-lg">Any phone, any network — no data, no app, no barrier.</p>
+
+      <!-- Plane + dotted path -->
+      <div class="relative mb-8 h-16 hidden md:block">
+        <svg class="absolute inset-0 w-full h-full" preserveAspectRatio="none" viewBox="0 0 880 64" fill="none">
+          <path class="plane-track" d="M 40 32 C 120 32 160 32 240 32 C 320 32 360 32 440 32 C 520 32 560 32 640 32 C 720 32 760 32 840 32" stroke="#C98B7A" stroke-width="2"/>
+          <!-- step dots -->
+          <circle cx="40"  cy="32" r="5" fill="#C98B7A"/>
+          <circle cx="293" cy="32" r="5" fill="#C98B7A"/>
+          <circle cx="547" cy="32" r="5" fill="#C98B7A"/>
+          <circle cx="840" cy="32" r="5" fill="#C98B7A"/>
+        </svg>
+        <!-- animated plane -->
+        <svg class="plane-clay" width="28" height="28" viewBox="0 0 24 24" fill="#C98B7A" style="transform-origin: center">
+          <path d="M21 3L3 10.5l6.75 2.25L12 21l2.25-6.75L21 3z"/>
+        </svg>
+      </div>
+
+      <div class="grid md:grid-cols-4 gap-5">
+        <div data-animate class="rounded-3xl rounded-tl-lg bg-cream border border-ink/10 p-6 hover:shadow-md transition-shadow duration-300">
+          <div class="w-10 h-10 rounded-full bg-clay/20 flex items-center justify-center mb-4">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C98B7A" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.8 19.8 0 0 1 3.08 4.18 2 2 0 0 1 5.07 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L9.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <p class="text-clay font-display text-3xl mb-3">1</p>
+          <p class="font-semibold mb-2">Dial the short code</p>
+          <p class="text-sm text-ink/70 leading-relaxed">Any phone, any network. No airtime is spent — the session is toll-free from the first screen.</p>
+        </div>
+        <div data-animate style="transition-delay:100ms" class="rounded-3xl bg-cream border border-ink/10 p-6 hover:shadow-md transition-shadow duration-300">
+          <div class="w-10 h-10 rounded-full bg-clay/20 flex items-center justify-center mb-4">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C98B7A" stroke-width="2" stroke-linecap="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          </div>
+          <p class="text-clay font-display text-3xl mb-3">2</p>
+          <p class="font-semibold mb-2">Get matched to your sector</p>
+          <p class="text-sm text-ink/70 leading-relaxed">The menu detects your registered sector and routes you to counselors and health posts operating nearby.</p>
+        </div>
+        <div data-animate style="transition-delay:200ms" class="rounded-3xl bg-cream border border-ink/10 p-6 hover:shadow-md transition-shadow duration-300">
+          <div class="w-10 h-10 rounded-full bg-clay/20 flex items-center justify-center mb-4">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C98B7A" stroke-width="2" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <p class="text-clay font-display text-3xl mb-3">3</p>
+          <p class="font-semibold mb-2">Talk to a counselor</p>
+          <p class="text-sm text-ink/70 leading-relaxed">Choose to be connected immediately on a toll-free line, or request a scheduled callback at a safer time.</p>
+        </div>
+        <div data-animate style="transition-delay:300ms" class="rounded-3xl rounded-br-lg bg-cream border border-ink/10 p-6 hover:shadow-md transition-shadow duration-300">
+          <div class="w-10 h-10 rounded-full bg-clay/20 flex items-center justify-center mb-4">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C98B7A" stroke-width="2" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <p class="text-clay font-display text-3xl mb-3">4</p>
+          <p class="font-semibold mb-2">Book with a booking code</p>
+          <p class="text-sm text-ink/70 leading-relaxed">A short, private code is issued for an in-person visit. Health post staff see the code, never your name.</p>
+        </div>
+      </div>
+
+      <button data-modal-target="modal-ussd" data-animate class="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-clay hover:text-ink transition-colors">
+        How is my information protected on a shared phone line? →
+      </button>
+    </div>
+  </section>
+
+  <!-- ONLINE STREAM -->
+  <section id="online" class="py-16 sm:py-20 bg-cream border-y border-ink/10 scroll-mt-24 relative">
+    <img src="assets/icon - 3.png" class="pointer-events-none select-none absolute top-6 left-3 w-10 rotate-[-16deg] hidden sm:block" />
+    <img src="assets/icon - 7.png" class="pointer-events-none select-none absolute bottom-6 right-3 w-9 rotate-[12deg] hidden sm:block" />
+    <div class="max-w-6xl mx-auto px-5 sm:px-8">
+
+      <div class="flex items-center gap-3 mb-3">
+        <span class="w-2.5 h-2.5 rounded-full bg-sagedeep"></span>
+        <h2 class="font-display text-2xl sm:text-3xl">The Online Stream</h2>
+      </div>
+      <p class="text-sm text-ink/60 mb-10 max-w-lg">Browse, book, and message from any browser — no app store needed.</p>
+
+      <!-- Plane + dotted path -->
+      <div class="relative mb-8 h-16 hidden md:block">
+        <svg class="absolute inset-0 w-full h-full" preserveAspectRatio="none" viewBox="0 0 840 64" fill="none">
+          <path class="plane-track" d="M 40 32 C 200 32 280 32 420 32 C 560 32 640 32 800 32" stroke="#4F6B4C" stroke-width="2"/>
+          <circle cx="40"  cy="32" r="5" fill="#4F6B4C"/>
+          <circle cx="420" cy="32" r="5" fill="#4F6B4C"/>
+          <circle cx="800" cy="32" r="5" fill="#4F6B4C"/>
+        </svg>
+        <svg class="plane-sage" width="28" height="28" viewBox="0 0 24 24" fill="#4F6B4C" style="transform-origin: center">
+          <path d="M21 3L3 10.5l6.75 2.25L12 21l2.25-6.75L21 3z"/>
+        </svg>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-5">
+        <div data-animate class="rounded-3xl bg-paper p-7 shadow-sm hover:shadow-md transition-shadow duration-300">
+          <div class="w-11 h-11 rounded-xl bg-sage/30 flex items-center justify-center mb-5">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4F6B4C" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+          </div>
+          <p class="font-semibold mb-2">Marketplace filtering</p>
+          <p class="text-sm text-ink/70 leading-relaxed">Filter therapists by language, specialty, gender, and availability, then read real credentials before you book.</p>
+        </div>
+        <div data-animate style="transition-delay:100ms" class="rounded-3xl bg-paper p-7 shadow-sm hover:shadow-md transition-shadow duration-300">
+          <div class="w-11 h-11 rounded-xl bg-clay/30 flex items-center justify-center mb-5">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C98B7A" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <p class="font-semibold mb-2">Private text &amp; video sessions</p>
+          <p class="text-sm text-ink/70 leading-relaxed">End-to-end session rooms, no recording, no shared devices required — leave and rejoin without losing your place.</p>
+        </div>
+        <div data-animate style="transition-delay:200ms" class="rounded-3xl bg-paper p-7 shadow-sm hover:shadow-md transition-shadow duration-300">
+          <div class="w-11 h-11 rounded-xl bg-ochre/30 flex items-center justify-center mb-5">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B4842E" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg>
+          </div>
+          <p class="font-semibold mb-2">Emotional progress tracking</p>
+          <p class="text-sm text-ink/70 leading-relaxed">A simple, private mood log you control — shareable with your therapist only if and when you choose.</p>
+        </div>
+      </div>
+
+      <button data-modal-target="modal-ai" data-animate class="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-sagedeep hover:text-ink transition-colors">
+        Is the AI companion actually private? →
+      </button>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-ink text-cream/70 pt-14 pb-8">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8">
+      <div class="grid sm:grid-cols-3 gap-10 pb-10 border-b border-cream/10">
+        <div>
+          <div class="flex items-center gap-2 mb-3">
+            <img src="assets/favicon.png" class="w-7 h-7" />
+            <p class="font-display text-xl text-cream">Therape</p>
+          </div>
+          <p class="text-sm leading-relaxed max-w-xs">Mental health care that meets you where you are — online or offline, in confidence.</p>
+          <p class="text-xs mt-4 text-cream/40">Built by Les Sages · Kigali, Rwanda</p>
+        </div>
+        <div>
+          <p class="text-xs uppercase tracking-widest font-semibold text-cream/40 mb-4">Navigate</p>
+          <ul class="space-y-2 text-sm">
+            <li><a href="home.html" class="hover:text-cream transition-colors">Home</a></li>
+            <li><a href="how-it-works.html" class="hover:text-cream transition-colors">How It Works</a></li>
+            <li><a href="for-therapists.html" class="hover:text-cream transition-colors">For Therapists</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-xs uppercase tracking-widest font-semibold text-cream/40 mb-4">Legal & Safety</p>
+          <ul class="space-y-2 text-sm">
+            <li><span class="cursor-default">Privacy Policy</span></li>
+            <li><span class="cursor-default">Terms of Use</span></li>
+            <li><span class="cursor-default">Provider Code of Conduct</span></li>
+          </ul>
+          <p class="mt-5 text-xs text-cream/50 leading-relaxed">If you are in immediate danger, please contact local emergency services or dial <span class="text-cream font-semibold">912</span>.</p>
+        </div>
+      </div>
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-cream/35">
+        <p>&copy; <span id="yr"></span> Therape. All rights reserved.</p>
+        <p>Designed &amp; developed by <span class="text-cream/60 font-medium">Les Sages</span></p>
+      </div>
+    </div>
+  </footer>
+  <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+
+  <!-- MODAL: AI COMPANION PRIVACY -->
+  <div id="modal-ai" class="fixed inset-0 z-[200] hidden items-end sm:items-center justify-center">
+    <div class="absolute inset-0 bg-ink/50 backdrop-blur-sm modal-backdrop" data-modal-close></div>
+    <div class="modal-panel relative bg-paper w-full sm:max-w-lg sm:rounded-3xl rounded-t-3xl p-7 sm:p-9 max-h-[85vh] overflow-y-auto">
+      <button data-modal-close class="absolute top-5 right-5 text-ink/50 hover:text-ink transition-colors" aria-label="Close">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+      <p class="uppercase tracking-[0.2em] text-xs font-semibold text-sagedeep mb-3">Online stream</p>
+      <h3 class="font-display text-2xl mb-4">AI Companion Privacy &amp; Anonymity Guardrails</h3>
+      <div class="space-y-4 text-sm text-ink/75 leading-relaxed">
+        <p>The AI companion is a support tool between sessions, not a replacement for your therapist, and it's built with limits designed to protect you:</p>
+        <ul class="space-y-3">
+          <li class="flex gap-3"><span class="text-sagedeep">•</span>Conversations with the companion are never linked to your real name — your profile uses an anonymous session ID only.</li>
+          <li class="flex gap-3"><span class="text-sagedeep">•</span>Nothing you tell the companion is shown to your human therapist unless you explicitly choose to share it.</li>
+          <li class="flex gap-3"><span class="text-sagedeep">•</span>Chats are never used to train external models and are not sold or shared with advertisers.</li>
+          <li class="flex gap-3"><span class="text-sagedeep">•</span>If the companion detects language suggesting immediate danger, it will surface local crisis resources and offer to connect you to a human counselor — it will not silently log or escalate without telling you.</li>
+          <li class="flex gap-3"><span class="text-sagedeep">•</span>You can delete your companion history at any time from account settings, permanently.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: USSD DATA SECURITY -->
+  <div id="modal-ussd" class="fixed inset-0 z-[200] hidden items-end sm:items-center justify-center">
+    <div class="absolute inset-0 bg-ink/50 backdrop-blur-sm modal-backdrop" data-modal-close></div>
+    <div class="modal-panel relative bg-paper w-full sm:max-w-lg sm:rounded-3xl rounded-t-3xl p-7 sm:p-9 max-h-[85vh] overflow-y-auto">
+      <button data-modal-close class="absolute top-5 right-5 text-ink/50 hover:text-ink transition-colors" aria-label="Close">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+      <p class="uppercase tracking-[0.2em] text-xs font-semibold text-clay mb-3">Offline stream</p>
+      <h3 class="font-display text-2xl mb-4">USSD Grassroots Data Security &amp; Gossip Protection</h3>
+      <div class="space-y-4 text-sm text-ink/75 leading-relaxed">
+        <p>USSD runs over a shared phone, a shared line, and sometimes a shared household. We designed around that reality directly:</p>
+        <ul class="space-y-3">
+          <li class="flex gap-3"><span class="text-clay">•</span>Nothing about a session — not that it happened, not its content — is written to the phone's call log or message history.</li>
+          <li class="flex gap-3"><span class="text-clay">•</span>Health post booking codes carry a reference number only. Front-desk staff can confirm a valid booking without ever seeing your name or your reason for the visit.</li>
+          <li class="flex gap-3"><span class="text-clay">•</span>Sector-level counselor matching uses your location tier only, never a precise address, and it's discarded after the session routes.</li>
+          <li class="flex gap-3"><span class="text-clay">•</span>Counselors on the toll-free line are trained specifically on confidentiality in small communities — including how to keep a session unremarkable to anyone nearby.</li>
+          <li class="flex gap-3"><span class="text-clay">•</span>No USSD session data is ever shared with telecom partners beyond what's required to route the free call.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+<script>
+
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('[data-animate]').forEach((el) => observer.observe(el));
+
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const bars = hamburger.querySelectorAll('span');
+  hamburger.addEventListener('click', () => {
+    const open = mobileMenu.classList.toggle('open');
+    bars[0].style.transform = open ? 'translateY(8px) rotate(45deg)' : '';
+    bars[1].style.transform = open ? 'translateY(-8px) rotate(-45deg)' : '';
+    bars[2].style.opacity = open ? '0' : '1';
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+    bars.forEach(b => { b.style.transform = ''; b.style.opacity = '1'; });
+  }));
+
+  function openModal(modal) {
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+    requestAnimationFrame(() => modal.classList.add('modal-open'));
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(modal) {
+    modal.classList.remove('modal-open');
+    document.body.style.overflow = '';
+    setTimeout(() => { modal.classList.add('hidden'); modal.classList.remove('flex'); }, 400);
+  }
+  document.querySelectorAll('[data-modal-target]').forEach((btn) => {
+    btn.addEventListener('click', () => openModal(document.getElementById(btn.getAttribute('data-modal-target'))));
+  });
+  document.querySelectorAll('[data-modal-close]').forEach((btn) => {
+    btn.addEventListener('click', () => closeModal(btn.closest('[id^="modal-"]')));
+  });
+</script>
+</body>
+</html>
