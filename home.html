@@ -3,8 +3,14 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#F2F5F0" />
 <title>Therape — Mental health care that meets you where you are</title>
 <meta name="description" content="Therape connects Rwandan youth and women survivors to licensed mental health care, online or offline, in confidence." />
+<meta property="og:title" content="Therape — Mental health care that meets you where you are" />
+<meta property="og:description" content="Therape connects Rwandan youth and women survivors to licensed mental health care, online or offline, in confidence." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="home.html" />
+<meta property="og:image" content="assets/favicon.png" />
 <link rel="icon" type="image/png" href="assets/favicon.png" />
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 <script src="https://cdn.tailwindcss.com"></script>
@@ -45,13 +51,17 @@
 </head>
 <body class="bg-paper text-ink font-body antialiased">
 
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[200] focus:rounded-full focus:bg-paper focus:px-4 focus:py-2 focus:shadow-lg">Skip to content</a>
+
+  <main id="main-content">
+
 
 
   <!-- NAV -->
   <header class="sticky top-0 z-50 bg-paper/95 backdrop-blur border-b border-ink/10">
     <nav class="max-w-6xl mx-auto px-5 sm:px-8 py-4 flex items-center justify-between">
       <a href="home.html" class="flex items-center gap-2">
-        <img src="assets/favicon.png" class="w-8 h-8" />
+        <img src="assets/favicon.png" alt="Therape" class="w-8 h-8" loading="lazy" />
         <span class="font-display text-xl tracking-tight">Therape</span>
       </a>
       <div class="hidden md:flex items-center gap-8 text-sm font-medium text-ink/80">
@@ -79,8 +89,8 @@
 
   <!-- HERO -->
   <section class="relative overflow-hidden">
-    <img src="assets/icon-1.png" class="pointer-events-none select-none absolute top-8 left-3 w-10 rotate-[-15deg] hidden sm:block" />
-    <img src="assets/icon - 3.png" class="pointer-events-none select-none absolute bottom-10 left-6 w-9 rotate-[10deg] hidden sm:block" />
+    <img src="assets/icon-1.png" alt="" loading="lazy" class="pointer-events-none select-none absolute top-8 left-3 w-10 rotate-[-15deg] hidden sm:block" />
+    <img src="assets/icon - 3.png" alt="" loading="lazy" class="pointer-events-none select-none absolute bottom-10 left-6 w-9 rotate-[10deg] hidden sm:block" />
     <svg class="absolute -top-10 -right-24 opacity-40 pointer-events-none" width="420" height="420" viewBox="0 0 420 420" fill="none">
       <path class="knot-line" d="M210 20 C 320 20 400 100 400 210 C 400 320 320 400 210 400 C 100 400 20 320 20 210 C 20 130 70 70 150 50" stroke="#7A9B76" stroke-width="1.5" fill="none"/>
       <path class="knot-line" d="M210 60 C 290 60 360 130 360 210 C 360 290 290 360 210 360 C 130 360 60 290 60 210 C 60 150 100 100 160 80" stroke="#D4A24C" stroke-width="1.5" fill="none"/>
@@ -109,15 +119,15 @@
       </div>
 
       <div data-animate style="transition-delay:150ms" class="md:col-span-6">
-        <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=1200&auto=format&fit=crop&q=80" alt="Rolling green hills of Rwanda at sunrise" class="w-full object-cover shadow-xl" style="height: calc(100vh - 4.5rem - 2rem); max-height: 780px; min-height: 300px; border-radius: 2.5rem 0.75rem 2.5rem 0.75rem" />
+        <img loading="lazy" src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=1200&auto=format&fit=crop&q=80" alt="Rolling green hills of Rwanda at sunrise" class="w-full object-cover shadow-xl" style="height: calc(100vh - 4.5rem - 2rem); max-height: 780px; min-height: 300px; border-radius: 2.5rem 0.75rem 2.5rem 0.75rem" />
       </div>
     </div>
   </section>
 
   <!-- TRUST METRICS -->
   <section class="bg-ink text-cream py-16 sm:py-20 relative overflow-hidden">
-    <img src="assets/icon -2.png" class="pointer-events-none select-none absolute top-4 right-4 w-10 rotate-[20deg] hidden sm:block" />
-    <img src="assets/icon - 5.png" class="pointer-events-none select-none absolute bottom-4 left-4 w-8 rotate-[-12deg] hidden sm:block" />
+    <img src="assets/icon -2.png" alt="" loading="lazy" class="pointer-events-none select-none absolute top-4 right-4 w-10 rotate-[20deg] hidden sm:block" />
+    <img src="assets/icon - 5.png" alt="" loading="lazy" class="pointer-events-none select-none absolute bottom-4 left-4 w-8 rotate-[-12deg] hidden sm:block" />
     <!-- dotted arc bottom-right -->
     <svg class="absolute -bottom-8 -right-10 opacity-20 pointer-events-none" width="260" height="260" viewBox="0 0 260 260" fill="none">
       <path class="knot-line" d="M260 130 C260 60 200 0 130 0 C60 0 0 60 0 130" stroke="#D4A24C" stroke-width="1.5"/>
@@ -146,8 +156,8 @@
 
   <!-- THERAPIST SHOWCASE — ASYMMETRIC -->
   <section class="py-20 sm:py-28 relative overflow-hidden">
-    <img src="assets/icon - 6.png" class="pointer-events-none select-none absolute top-10 left-2 w-9 rotate-[8deg] hidden sm:block" />
-    <img src="assets/icon - 7.png" class="pointer-events-none select-none absolute bottom-8 right-3 w-10 rotate-[-18deg] hidden sm:block" />
+    <img src="assets/icon - 6.png" alt="" loading="lazy" class="pointer-events-none select-none absolute top-10 left-2 w-9 rotate-[8deg] hidden sm:block" />
+    <img src="assets/icon - 7.png" alt="" loading="lazy" class="pointer-events-none select-none absolute bottom-8 right-3 w-10 rotate-[-18deg] hidden sm:block" />
     <!-- dotted spiral top-right -->
     <svg class="absolute top-6 right-0 opacity-30 pointer-events-none" width="180" height="180" viewBox="0 0 180 180" fill="none">
       <path class="knot-line" d="M90 10 C140 10 170 50 170 90 C170 130 140 170 90 170 C40 170 10 130 10 90 C10 60 30 36 58 24" stroke="#B7A8C9" stroke-width="1.4"/>
@@ -175,13 +185,13 @@
       <div class="md:col-span-7 flex justify-center items-center">
         <div class="grid grid-cols-2 gap-3 max-w-xs w-full">
 
-          <img data-animate src="assets/Raymond Pic.jpg" alt="Raymond" class="w-full aspect-[3/4] object-cover object-top shadow-lg card-tilt" style="border-radius: 2.5rem 0.75rem 0.75rem 0.75rem; transform: rotate(-1.5deg)" />
+          <img data-animate loading="lazy" src="assets/Raymond Pic.jpg" alt="Raymond" class="w-full aspect-[3/4] object-cover object-top shadow-lg card-tilt" style="border-radius: 2.5rem 0.75rem 0.75rem 0.75rem; transform: rotate(-1.5deg)" />
 
-          <img data-animate style="transition-delay:100ms; border-radius: 0.75rem 2.5rem 0.75rem 0.75rem; transform: rotate(1.5deg)" src="assets/yanice.jpeg" alt="Yanice" class="w-full aspect-[3/4] object-cover object-top shadow-lg card-tilt" />
+          <img data-animate loading="lazy" style="transition-delay:100ms; border-radius: 0.75rem 2.5rem 0.75rem 0.75rem; transform: rotate(1.5deg)" src="assets/yanice.jpeg" alt="Yanice" class="w-full aspect-[3/4] object-cover object-top shadow-lg card-tilt" />
 
-          <img data-animate style="transition-delay:200ms; border-radius: 0.75rem 0.75rem 0.75rem 2.5rem; transform: rotate(1.5deg)" src="assets/brasen.jpeg" alt="Brasen" class="w-full aspect-[3/4] object-cover object-top shadow-lg card-tilt" />
+          <img data-animate loading="lazy" style="transition-delay:200ms; border-radius: 0.75rem 0.75rem 0.75rem 2.5rem; transform: rotate(1.5deg)" src="assets/brasen.jpeg" alt="Brasen" class="w-full aspect-[3/4] object-cover object-top shadow-lg card-tilt" />
 
-          <img data-animate style="transition-delay:300ms; border-radius: 0.75rem 0.75rem 2.5rem 0.75rem; transform: rotate(-1.5deg)" src="assets/raika.jpeg" alt="Raika" class="w-full aspect-[3/4] object-cover object-top shadow-lg card-tilt" />
+          <img data-animate loading="lazy" style="transition-delay:300ms; border-radius: 0.75rem 0.75rem 2.5rem 0.75rem; transform: rotate(-1.5deg)" src="assets/raika.jpeg" alt="Raika" class="w-full aspect-[3/4] object-cover object-top shadow-lg card-tilt" />
 
         </div>
       </div>
@@ -190,8 +200,8 @@
 
   <!-- TESTIMONIALS -->
   <section class="bg-cream py-20 sm:py-24 border-y border-ink/10 relative overflow-hidden">
-    <img src="assets/icon-1.png" class="pointer-events-none select-none absolute top-6 right-4 w-8 rotate-[25deg] hidden sm:block" />
-    <img src="assets/icon -2.png" class="pointer-events-none select-none absolute bottom-6 left-3 w-9 rotate-[-8deg] hidden sm:block" />
+    <img src="assets/icon-1.png" alt="" loading="lazy" class="pointer-events-none select-none absolute top-6 right-4 w-8 rotate-[25deg] hidden sm:block" />
+    <img src="assets/icon -2.png" alt="" loading="lazy" class="pointer-events-none select-none absolute bottom-6 left-3 w-9 rotate-[-8deg] hidden sm:block" />
     <!-- dotted wave top-left -->
     <svg class="absolute -top-4 -left-8 opacity-25 pointer-events-none" width="220" height="120" viewBox="0 0 220 120" fill="none">
       <path class="knot-line" d="M0 60 C30 20 60 20 90 60 C120 100 150 100 180 60 C200 34 210 24 220 20" stroke="#7A9B76" stroke-width="1.5"/>
@@ -225,8 +235,8 @@
 
   <!-- MEET THE TEAM -->
   <section class="py-20 sm:py-28 relative overflow-hidden">
-    <img src="assets/icon - 3.png" class="pointer-events-none select-none absolute top-8 right-5 w-10 rotate-[-20deg] hidden sm:block" />
-    <img src="assets/icon - 5.png" class="pointer-events-none select-none absolute bottom-10 left-2 w-8 rotate-[14deg] hidden sm:block" />
+    <img src="assets/icon - 3.png" alt="" loading="lazy" class="pointer-events-none select-none absolute top-8 right-5 w-10 rotate-[-20deg] hidden sm:block" />
+    <img src="assets/icon - 5.png" alt="" loading="lazy" class="pointer-events-none select-none absolute bottom-10 left-2 w-8 rotate-[14deg] hidden sm:block" />
     <svg class="absolute top-0 right-0 opacity-20 pointer-events-none" width="300" height="200" viewBox="0 0 300 200" fill="none">
       <path class="knot-line" d="M300 0 C300 80 240 150 160 180 C100 202 40 196 0 180" stroke="#D4A24C" stroke-width="1.5"/>
       <path class="knot-line" d="M300 30 C290 100 230 160 150 185 C90 204 30 198 0 185" stroke="#7A9B76" stroke-width="1.5"/>
@@ -244,7 +254,7 @@
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
 
         <div data-animate class="group relative overflow-hidden rounded-[2rem] rounded-tl-md shadow-md bg-sage/10">
-          <img src="assets/Raymond Pic.jpg" alt="Raymond" class="w-full aspect-[3/4] object-cover object-top transition-transform duration-700 group-hover:scale-105" />
+          <img src="assets/Raymond Pic.jpg" alt="Raymond" loading="lazy" class="w-full aspect-[3/4] object-cover object-top transition-transform duration-700 group-hover:scale-105" />
           <div class="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/10 to-transparent"></div>
           <div class="absolute bottom-0 left-0 p-5">
             <p class="font-display text-xl text-cream">Raymond</p>
@@ -253,7 +263,7 @@
         </div>
 
         <div data-animate style="transition-delay:100ms" class="group relative overflow-hidden rounded-[2rem] rounded-tr-md shadow-md bg-clay/10 mt-0 lg:mt-8">
-          <img src="assets/yanice.jpeg" alt="Yanice" class="w-full aspect-[3/4] object-cover object-top transition-transform duration-700 group-hover:scale-105" />
+          <img src="assets/yanice.jpeg" alt="Yanice" loading="lazy" class="w-full aspect-[3/4] object-cover object-top transition-transform duration-700 group-hover:scale-105" />
           <div class="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/10 to-transparent"></div>
           <div class="absolute bottom-0 left-0 p-5">
             <p class="font-display text-xl text-cream">Yanice</p>
@@ -262,7 +272,7 @@
         </div>
 
         <div data-animate style="transition-delay:200ms" class="group relative overflow-hidden rounded-[2rem] rounded-bl-md shadow-md bg-ochre/10">
-          <img src="assets/brasen.jpeg" alt="Brasen" class="w-full aspect-[3/4] object-cover object-top transition-transform duration-700 group-hover:scale-105" />
+          <img src="assets/brasen.jpeg" alt="Brasen" loading="lazy" class="w-full aspect-[3/4] object-cover object-top transition-transform duration-700 group-hover:scale-105" />
           <div class="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/10 to-transparent"></div>
           <div class="absolute bottom-0 left-0 p-5">
             <p class="font-display text-xl text-cream">Brasen</p>
@@ -271,7 +281,7 @@
         </div>
 
         <div data-animate style="transition-delay:300ms" class="group relative overflow-hidden rounded-[2rem] rounded-br-md shadow-md bg-lavender/10 mt-0 lg:mt-8">
-          <img src="assets/raika.jpeg" alt="Raika" class="w-full aspect-[3/4] object-cover object-top transition-transform duration-700 group-hover:scale-105" />
+          <img src="assets/raika.jpeg" alt="Raika" loading="lazy" class="w-full aspect-[3/4] object-cover object-top transition-transform duration-700 group-hover:scale-105" />
           <div class="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/10 to-transparent"></div>
           <div class="absolute bottom-0 left-0 p-5">
             <p class="font-display text-xl text-cream">Raika</p>
@@ -285,8 +295,8 @@
 
   <!-- GALLERY -->
   <section class="bg-cream py-20 sm:py-28 border-y border-ink/10 relative overflow-hidden">
-    <img src="assets/icon - 6.png" class="pointer-events-none select-none absolute top-6 right-3 w-9 rotate-[18deg] hidden sm:block" />
-    <img src="assets/icon - 7.png" class="pointer-events-none select-none absolute bottom-8 left-4 w-10 rotate-[-10deg] hidden sm:block" />
+    <img src="assets/icon - 6.png" alt="" loading="lazy" class="pointer-events-none select-none absolute top-6 right-3 w-9 rotate-[18deg] hidden sm:block" />
+    <img src="assets/icon - 7.png" alt="" loading="lazy" class="pointer-events-none select-none absolute bottom-8 left-4 w-10 rotate-[-10deg] hidden sm:block" />
     <svg class="absolute -top-6 -left-6 opacity-20 pointer-events-none" width="200" height="200" viewBox="0 0 200 200" fill="none">
       <circle cx="100" cy="100" r="90" stroke="#7A9B76" stroke-width="1.4" stroke-dasharray="6 7"/>
       <circle cx="100" cy="100" r="60" stroke="#D4A24C" stroke-width="1.4" stroke-dasharray="4 8"/>
@@ -299,27 +309,27 @@
       <div class="columns-2 md:columns-3 gap-4 space-y-4">
 
         <div data-animate class="break-inside-avoid overflow-hidden rounded-2xl rounded-tl-[2rem] shadow-sm group">
-          <img src="assets/activity - 1.jpeg" alt="Activity" class="w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+          <img src="assets/activity - 1.jpeg" alt="Activity" loading="lazy" class="w-full object-cover transition-transform duration-700 group-hover:scale-105" />
         </div>
 
         <div data-animate style="transition-delay:80ms" class="break-inside-avoid overflow-hidden rounded-2xl rounded-tr-[2rem] shadow-sm group">
-          <img src="assets/activity - 2.jpeg" alt="Activity" class="w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+          <img src="assets/activity - 2.jpeg" alt="Activity" loading="lazy" class="w-full object-cover transition-transform duration-700 group-hover:scale-105" />
         </div>
 
         <div data-animate style="transition-delay:160ms" class="break-inside-avoid overflow-hidden rounded-2xl rounded-br-[2rem] shadow-sm group">
-          <img src="assets/activity - 3.jpeg" alt="Activity" class="w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+          <img src="assets/activity - 3.jpeg" alt="Activity" loading="lazy" class="w-full object-cover transition-transform duration-700 group-hover:scale-105" />
         </div>
 
         <div data-animate style="transition-delay:240ms" class="break-inside-avoid overflow-hidden rounded-2xl rounded-bl-[2rem] shadow-sm group">
-          <img src="assets/activity - 4.jpeg" alt="Activity" class="w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+          <img src="assets/activity - 4.jpeg" alt="Activity" loading="lazy" class="w-full object-cover transition-transform duration-700 group-hover:scale-105" />
         </div>
 
         <div data-animate style="transition-delay:320ms" class="break-inside-avoid overflow-hidden rounded-2xl rounded-tl-[2rem] shadow-sm group">
-          <img src="assets/activity - 5.jpg" alt="Activity" class="w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+          <img src="assets/activity - 5.jpg" alt="Activity" loading="lazy" class="w-full object-cover transition-transform duration-700 group-hover:scale-105" />
         </div>
 
         <div data-animate style="transition-delay:400ms" class="break-inside-avoid overflow-hidden rounded-2xl rounded-br-[2rem] shadow-sm group">
-          <img src="assets/activity - 6.jpg" alt="Activity" class="w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+          <img src="assets/activity - 6.jpg" alt="Activity" loading="lazy" class="w-full object-cover transition-transform duration-700 group-hover:scale-105" />
         </div>
 
 
@@ -333,7 +343,7 @@
       <div class="grid sm:grid-cols-3 gap-10 pb-10 border-b border-cream/10">
         <div>
           <div class="flex items-center gap-2 mb-3">
-            <img src="assets/favicon.png" class="w-7 h-7" />
+            <img src="assets/favicon.png" alt="Therape" class="w-7 h-7" loading="lazy" />
             <p class="font-display text-xl text-cream">Therape</p>
           </div>
           <p class="text-sm leading-relaxed max-w-xs">Mental health care that meets you where you are — online or offline, in confidence.</p>
@@ -363,9 +373,8 @@
       </div>
     </div>
   </footer>
-  <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
-
-<script>
+  <script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
 
 
   const observer = new IntersectionObserver((entries) => {
@@ -392,5 +401,6 @@
     bars.forEach(b => { b.style.transform = ''; b.style.opacity = '1'; });
   }));
 </script>
+</main>
 </body>
 </html>
