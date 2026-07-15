@@ -67,23 +67,13 @@
   }
   .modal-panel { transform: translateY(24px); opacity: 0; transition: transform 500ms cubic-bezier(.22,.61,.36,1), opacity 500ms ease; }
   .modal-open .modal-panel { transform: translateY(0); opacity: 1; }
-  .plane-track { stroke-dasharray: 8 6; }
-  @keyframes fly {
-    0%   { offset-distance: 0%; }
-    100% { offset-distance: 100%; }
+  @keyframes soft-pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.12); opacity: 0.75; }
   }
-  .plane-clay {
-    offset-path: path('M 40 32 C 120 32 160 32 240 32 C 320 32 360 32 440 32 C 520 32 560 32 640 32 C 720 32 760 32 840 32');
-    animation: fly 4s linear infinite;
-    position: absolute;
-    top: 0; left: 0;
-  }
-  .plane-sage {
-    offset-path: path('M 40 32 C 200 32 280 32 420 32 C 560 32 640 32 800 32');
-    animation: fly 4s linear infinite;
-    position: absolute;
-    top: 0; left: 0;
-  }
+  .step-icon { animation: soft-pulse 2.8s ease-in-out infinite; }
+  .step-card { transition: transform 400ms cubic-bezier(.22,.61,.36,1), box-shadow 400ms ease; }
+  .step-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px -8px rgba(31,59,58,0.12); }
   #mobile-menu { transition: opacity 300ms ease, transform 300ms ease; }
   #mobile-menu.open { opacity: 1; transform: translateY(0); pointer-events: auto; }
 </style>
@@ -107,6 +97,7 @@
         <a href="home.html" class="hover:text-sagedeep transition-colors">Home</a>
         <a href="how-it-works.html" class="text-ink">How It Works</a>
         <a href="for-therapists.html" class="hover:text-sagedeep transition-colors">For Therapists</a>
+        <a href="progress.html" class="hover:text-sagedeep transition-colors">Progress</a>
       </div>
       <div class="flex items-center gap-3">
         <a href="#offline" class="hidden md:inline-flex rounded-full bg-sagedeep text-cream text-sm font-medium px-4 py-2 hover:bg-ink transition-colors duration-300">Find Support</a>
@@ -121,6 +112,7 @@
       <a href="home.html" class="text-sm font-medium text-ink/70 py-2 border-b border-ink/10 hover:text-sagedeep transition-colors">Home</a>
       <a href="how-it-works.html" class="text-sm font-medium text-ink/70 py-2 border-b border-ink/10 hover:text-sagedeep transition-colors">How It Works</a>
       <a href="for-therapists.html" class="text-sm font-medium text-ink/70 py-2 border-b border-ink/10 hover:text-sagedeep transition-colors">For Therapists</a>
+      <a href="progress.html" class="text-sm font-medium text-ink/70 py-2 border-b border-ink/10 hover:text-sagedeep transition-colors">Progress</a>
       <a href="#offline" class="mt-1 rounded-full bg-sagedeep text-cream text-sm font-medium px-4 py-3 text-center hover:bg-ink transition-colors duration-300">Find Support</a>
     </div>
   </header>
@@ -129,29 +121,35 @@
   <section class="max-w-6xl mx-auto px-5 sm:px-8 pt-16 pb-10 text-center relative">
     <img src="assets/icon - 5.png" alt="" loading="lazy" class="pointer-events-none select-none absolute top-6 left-4 w-9 rotate-[-14deg] hidden sm:block" />
     <img src="assets/icon - 6.png" alt="" loading="lazy" class="pointer-events-none select-none absolute top-6 right-4 w-8 rotate-[18deg] hidden sm:block" />
-    <p data-animate class="uppercase tracking-[0.2em] text-xs font-semibold text-sagedeep mb-4">The dual engine</p>
-    <h1 data-animate class="font-display text-4xl sm:text-5xl leading-tight max-w-2xl mx-auto">One platform, two doors in.</h1>
+    <p data-animate class="uppercase tracking-[0.2em] text-xs font-semibold text-sagedeep mb-4">How it works</p>
+    <h1 data-animate class="font-display text-4xl sm:text-5xl leading-tight max-w-2xl mx-auto">Pick the path that works for you.</h1>
     <p data-animate class="mt-5 max-w-xl mx-auto text-ink/75 leading-relaxed">
-      Whichever door you take, you reach the same standard of vetted, confidential care. Choose the track that fits your phone, your network, and your comfort.
+      No smartphone? Use USSD — just dial from any phone. Have internet? Use the web app. Either way, you reach the same vetted, confidential care.
     </p>
   </section>
 
-  <!-- COMPARATIVE TABS/ANCHORS -->
-  <section class="max-w-6xl mx-auto px-5 sm:px-8 pb-6">
+  <!-- PATH CHOOSER -->
+  <section class="max-w-6xl mx-auto px-5 sm:px-8 pb-10">
     <div class="grid sm:grid-cols-2 gap-4">
-      <a href="#offline" data-animate class="rounded-3xl bg-clay/15 hover:bg-clay/25 p-6 flex items-center justify-between transition-colors duration-500">
-        <div>
-          <p class="font-display text-xl">Offline — USSD</p>
-          <p class="text-sm text-ink/70 mt-1">No smartphone, no data, no app store.</p>
+      <a href="#offline" data-animate class="group rounded-3xl bg-clay/10 hover:bg-clay/20 border border-clay/20 hover:border-clay/40 p-6 flex items-start gap-4 transition-all duration-300">
+        <div class="w-12 h-12 rounded-2xl bg-clay/20 flex items-center justify-center shrink-0 mt-0.5">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C98B7A" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.8 19.8 0 0 1 3.08 4.18 2 2 0 0 1 5.07 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L9.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
         </div>
-        <span class="text-clay text-2xl">→</span>
+        <div class="flex-1">
+          <p class="font-display text-xl mb-1">No internet? Use USSD</p>
+          <p class="text-sm text-ink/65 leading-relaxed">Dial a short code from any basic phone. Free, private, no data needed.</p>
+          <p class="mt-3 text-sm font-semibold text-clay group-hover:underline">See the 4 steps →</p>
+        </div>
       </a>
-      <a href="#online" data-animate style="transition-delay:100ms" class="rounded-3xl bg-sage/15 hover:bg-sage/25 p-6 flex items-center justify-between transition-colors duration-500">
-        <div>
-          <p class="font-display text-xl">Online — Web App</p>
-          <p class="text-sm text-ink/70 mt-1">Browse, book, and message from any browser.</p>
+      <a href="#online" data-animate style="transition-delay:100ms" class="group rounded-3xl bg-sage/10 hover:bg-sage/20 border border-sage/20 hover:border-sage/40 p-6 flex items-start gap-4 transition-all duration-300">
+        <div class="w-12 h-12 rounded-2xl bg-sage/20 flex items-center justify-center shrink-0 mt-0.5">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4F6B4C" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
         </div>
-        <span class="text-sagedeep text-2xl">→</span>
+        <div class="flex-1">
+          <p class="font-display text-xl mb-1">Have internet? Use the web app</p>
+          <p class="text-sm text-ink/65 leading-relaxed">Browse therapists, book sessions, and track your mood — all from a browser.</p>
+          <p class="mt-3 text-sm font-semibold text-sagedeep group-hover:underline">See the 3 features →</p>
+        </div>
       </a>
     </div>
   </section>
@@ -162,66 +160,61 @@
     <img src="assets/icon -2.png" alt="" loading="lazy" class="pointer-events-none select-none absolute bottom-6 left-2 w-8 rotate-[-10deg] hidden sm:block" />
     <div class="max-w-6xl mx-auto px-5 sm:px-8">
 
-      <div class="flex items-center gap-3 mb-3">
+      <div class="flex items-center gap-3 mb-2">
         <span class="w-2.5 h-2.5 rounded-full bg-clay"></span>
-        <h2 class="font-display text-2xl sm:text-3xl">The Offline Stream</h2>
+        <p class="text-xs uppercase tracking-widest font-semibold text-clay">No internet needed</p>
       </div>
-      <p class="text-sm text-ink/60 mb-10 max-w-lg">Any phone, any network — no data, no app, no barrier.</p>
+      <h2 class="font-display text-2xl sm:text-3xl mb-2">Using USSD (any phone)</h2>
+      <p class="text-sm text-ink/60 mb-10 max-w-lg">Just dial a short code — no smartphone, no data, no app. Here's exactly what happens:</p>
 
-      <!-- Plane + dotted path -->
-      <div class="relative mb-8 h-16 hidden md:block">
-        <svg class="absolute inset-0 w-full h-full" preserveAspectRatio="none" viewBox="0 0 880 64" fill="none">
-          <path class="plane-track" d="M 40 32 C 120 32 160 32 240 32 C 320 32 360 32 440 32 C 520 32 560 32 640 32 C 720 32 760 32 840 32" stroke="#C98B7A" stroke-width="2"/>
-          <!-- step dots -->
-          <circle cx="40"  cy="32" r="5" fill="#C98B7A"/>
-          <circle cx="293" cy="32" r="5" fill="#C98B7A"/>
-          <circle cx="547" cy="32" r="5" fill="#C98B7A"/>
-          <circle cx="840" cy="32" r="5" fill="#C98B7A"/>
-        </svg>
-        <!-- animated plane -->
-        <svg class="plane-clay" width="28" height="28" viewBox="0 0 24 24" fill="#C98B7A" style="transform-origin: center">
-          <path d="M21 3L3 10.5l6.75 2.25L12 21l2.25-6.75L21 3z"/>
-        </svg>
-      </div>
-
-      <div class="grid md:grid-cols-4 gap-5">
-        <div data-animate class="rounded-3xl rounded-tl-lg bg-cream border border-ink/10 p-6 hover:shadow-md transition-shadow duration-300">
-          <div class="w-10 h-10 rounded-full bg-clay/20 flex items-center justify-center mb-4">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C98B7A" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.8 19.8 0 0 1 3.08 4.18 2 2 0 0 1 5.07 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L9.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-5 relative">
+        <div data-animate class="step-card rounded-3xl rounded-tl-lg bg-cream border border-ink/10 p-6">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="step-icon w-10 h-10 rounded-full bg-clay/20 flex items-center justify-center shrink-0">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C98B7A" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.8 19.8 0 0 1 3.08 4.18 2 2 0 0 1 5.07 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L9.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <p class="text-clay font-display text-3xl">1</p>
           </div>
-          <p class="text-clay font-display text-3xl mb-3">1</p>
           <p class="font-semibold mb-2">Dial the short code</p>
-          <p class="text-sm text-ink/70 leading-relaxed">Any phone, any network. No airtime is spent — the session is toll-free from the first screen.</p>
+          <p class="text-sm text-ink/70 leading-relaxed">Any phone, any network. No airtime spent — the session is toll-free from the first screen.</p>
         </div>
-        <div data-animate style="transition-delay:100ms" class="rounded-3xl bg-cream border border-ink/10 p-6 hover:shadow-md transition-shadow duration-300">
-          <div class="w-10 h-10 rounded-full bg-clay/20 flex items-center justify-center mb-4">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C98B7A" stroke-width="2" stroke-linecap="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        <div data-animate style="transition-delay:100ms" class="step-card rounded-3xl bg-cream border border-ink/10 p-6">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="step-icon w-10 h-10 rounded-full bg-clay/20 flex items-center justify-center shrink-0">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C98B7A" stroke-width="2" stroke-linecap="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            </div>
+            <p class="text-clay font-display text-3xl">2</p>
           </div>
-          <p class="text-clay font-display text-3xl mb-3">2</p>
-          <p class="font-semibold mb-2">Get matched to your sector</p>
-          <p class="text-sm text-ink/70 leading-relaxed">The menu detects your registered sector and routes you to counselors and health posts operating nearby.</p>
+          <p class="font-semibold mb-2">Get matched to your area</p>
+          <p class="text-sm text-ink/70 leading-relaxed">The menu routes you to counselors and health posts operating in your sector — no precise address needed.</p>
         </div>
-        <div data-animate style="transition-delay:200ms" class="rounded-3xl bg-cream border border-ink/10 p-6 hover:shadow-md transition-shadow duration-300">
-          <div class="w-10 h-10 rounded-full bg-clay/20 flex items-center justify-center mb-4">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C98B7A" stroke-width="2" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        <div data-animate style="transition-delay:200ms" class="step-card rounded-3xl bg-cream border border-ink/10 p-6">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="step-icon w-10 h-10 rounded-full bg-clay/20 flex items-center justify-center shrink-0">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C98B7A" stroke-width="2" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <p class="text-clay font-display text-3xl">3</p>
           </div>
-          <p class="text-clay font-display text-3xl mb-3">3</p>
           <p class="font-semibold mb-2">Talk to a counselor</p>
-          <p class="text-sm text-ink/70 leading-relaxed">Choose to be connected immediately on a toll-free line, or request a scheduled callback at a safer time.</p>
+          <p class="text-sm text-ink/70 leading-relaxed">Connect immediately on a toll-free line, or request a callback at a safer time.</p>
         </div>
-        <div data-animate style="transition-delay:300ms" class="rounded-3xl rounded-br-lg bg-cream border border-ink/10 p-6 hover:shadow-md transition-shadow duration-300">
-          <div class="w-10 h-10 rounded-full bg-clay/20 flex items-center justify-center mb-4">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C98B7A" stroke-width="2" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        <div data-animate style="transition-delay:300ms" class="step-card rounded-3xl rounded-br-lg bg-cream border border-ink/10 p-6">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="step-icon w-10 h-10 rounded-full bg-clay/20 flex items-center justify-center shrink-0">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C98B7A" stroke-width="2" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+            <p class="text-clay font-display text-3xl">4</p>
           </div>
-          <p class="text-clay font-display text-3xl mb-3">4</p>
-          <p class="font-semibold mb-2">Book with a booking code</p>
-          <p class="text-sm text-ink/70 leading-relaxed">A short, private code is issued for an in-person visit. Health post staff see the code, never your name.</p>
+          <p class="font-semibold mb-2">Book with a private code</p>
+          <p class="text-sm text-ink/70 leading-relaxed">A short code is issued for an in-person visit. Health post staff see the code, never your name.</p>
         </div>
       </div>
 
-      <button data-modal-target="modal-ussd" data-animate class="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-clay hover:text-ink transition-colors">
-        How is my information protected on a shared phone line? →
-      </button>
+      <div data-modal-target="modal-ussd" data-animate class="mt-8 inline-flex items-center gap-3 cursor-pointer group bg-clay/10 hover:bg-clay/20 border border-clay/20 rounded-2xl px-5 py-3.5 transition-all duration-300">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C98B7A" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+        <span class="text-sm font-semibold text-clay">How is my information protected on a shared phone?</span>
+        <svg class="ml-auto text-clay/60 group-hover:translate-x-0.5 transition-transform" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </div>
     </div>
   </section>
 
@@ -231,52 +224,51 @@
     <img src="assets/icon - 7.png" alt="" loading="lazy" class="pointer-events-none select-none absolute bottom-6 right-3 w-9 rotate-[12deg] hidden sm:block" />
     <div class="max-w-6xl mx-auto px-5 sm:px-8">
 
-      <div class="flex items-center gap-3 mb-3">
+      <div class="flex items-center gap-3 mb-2">
         <span class="w-2.5 h-2.5 rounded-full bg-sagedeep"></span>
-        <h2 class="font-display text-2xl sm:text-3xl">The Online Stream</h2>
+        <p class="text-xs uppercase tracking-widest font-semibold text-sagedeep">Internet required</p>
       </div>
-      <p class="text-sm text-ink/60 mb-10 max-w-lg">Browse, book, and message from any browser — no app store needed.</p>
-
-      <!-- Plane + dotted path -->
-      <div class="relative mb-8 h-16 hidden md:block">
-        <svg class="absolute inset-0 w-full h-full" preserveAspectRatio="none" viewBox="0 0 840 64" fill="none">
-          <path class="plane-track" d="M 40 32 C 200 32 280 32 420 32 C 560 32 640 32 800 32" stroke="#4F6B4C" stroke-width="2"/>
-          <circle cx="40"  cy="32" r="5" fill="#4F6B4C"/>
-          <circle cx="420" cy="32" r="5" fill="#4F6B4C"/>
-          <circle cx="800" cy="32" r="5" fill="#4F6B4C"/>
-        </svg>
-        <svg class="plane-sage" width="28" height="28" viewBox="0 0 24 24" fill="#4F6B4C" style="transform-origin: center">
-          <path d="M21 3L3 10.5l6.75 2.25L12 21l2.25-6.75L21 3z"/>
-        </svg>
-      </div>
+      <h2 class="font-display text-2xl sm:text-3xl mb-2">Using the Web App</h2>
+      <p class="text-sm text-ink/60 mb-10 max-w-lg">Open any browser, no app download needed. Three things you can do:</p>
 
       <div class="grid md:grid-cols-3 gap-5">
-        <div data-animate class="rounded-3xl bg-paper p-7 shadow-sm hover:shadow-md transition-shadow duration-300">
-          <div class="w-11 h-11 rounded-xl bg-sage/30 flex items-center justify-center mb-5">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4F6B4C" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        <div data-animate class="step-card rounded-3xl bg-paper p-7 shadow-sm">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="step-icon w-11 h-11 rounded-xl bg-sage/30 flex items-center justify-center shrink-0">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4F6B4C" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+            </div>
+            <p class="text-sagedeep font-display text-3xl">1</p>
           </div>
-          <p class="font-semibold mb-2">Marketplace filtering</p>
-          <p class="text-sm text-ink/70 leading-relaxed">Filter therapists by language, specialty, gender, and availability, then read real credentials before you book.</p>
+          <p class="font-semibold mb-2">Find the right therapist</p>
+          <p class="text-sm text-ink/70 leading-relaxed">Filter by language, specialty, gender, and availability. Read real credentials before you commit to anything.</p>
         </div>
-        <div data-animate style="transition-delay:100ms" class="rounded-3xl bg-paper p-7 shadow-sm hover:shadow-md transition-shadow duration-300">
-          <div class="w-11 h-11 rounded-xl bg-clay/30 flex items-center justify-center mb-5">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C98B7A" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        <div data-animate style="transition-delay:100ms" class="step-card rounded-3xl bg-paper p-7 shadow-sm">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="step-icon w-11 h-11 rounded-xl bg-clay/30 flex items-center justify-center shrink-0">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C98B7A" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <p class="text-clay font-display text-3xl">2</p>
           </div>
-          <p class="font-semibold mb-2">Private text &amp; video sessions</p>
-          <p class="text-sm text-ink/70 leading-relaxed">End-to-end session rooms, no recording, no shared devices required — leave and rejoin without losing your place.</p>
+          <p class="font-semibold mb-2">Have a private session</p>
+          <p class="text-sm text-ink/70 leading-relaxed">Text or video — end-to-end encrypted, never recorded. Leave and rejoin without losing your place.</p>
         </div>
-        <div data-animate style="transition-delay:200ms" class="rounded-3xl bg-paper p-7 shadow-sm hover:shadow-md transition-shadow duration-300">
-          <div class="w-11 h-11 rounded-xl bg-ochre/30 flex items-center justify-center mb-5">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B4842E" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg>
+        <div data-animate style="transition-delay:200ms" class="step-card rounded-3xl bg-paper p-7 shadow-sm">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="step-icon w-11 h-11 rounded-xl bg-ochre/30 flex items-center justify-center shrink-0">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B4842E" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg>
+            </div>
+            <p class="text-ochre font-display text-3xl">3</p>
           </div>
-          <p class="font-semibold mb-2">Emotional progress tracking</p>
-          <p class="text-sm text-ink/70 leading-relaxed">A simple, private mood log you control — shareable with your therapist only if and when you choose.</p>
+          <p class="font-semibold mb-2">Track your mood over time</p>
+          <p class="text-sm text-ink/70 leading-relaxed">A private mood log only you can see — share it with your therapist only if you choose to.</p>
         </div>
       </div>
 
-      <button data-modal-target="modal-ai" data-animate class="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-sagedeep hover:text-ink transition-colors">
-        Is the AI companion actually private? →
-      </button>
+      <div data-modal-target="modal-ai" data-animate class="mt-8 inline-flex items-center gap-3 cursor-pointer group bg-sage/10 hover:bg-sage/20 border border-sage/20 rounded-2xl px-5 py-3.5 transition-all duration-300">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4F6B4C" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+        <span class="text-sm font-semibold text-sagedeep">Is the AI companion actually private?</span>
+        <svg class="ml-auto text-sagedeep/60 group-hover:translate-x-0.5 transition-transform" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </div>
     </div>
   </section>
 
@@ -327,7 +319,7 @@
   <!-- FOOTER -->
   <footer class="bg-ink text-cream/70 pt-14 pb-8">
     <div class="max-w-6xl mx-auto px-5 sm:px-8">
-      <div class="grid sm:grid-cols-3 gap-10 pb-10 border-b border-cream/10">
+      <div class="grid sm:grid-cols-3 gap-6 pb-10 border-b border-cream/10">
         <div>
           <div class="flex items-center gap-2 mb-3">
             <img src="assets/favicon.png" alt="Therape" class="w-7 h-7" loading="lazy" />
@@ -342,6 +334,7 @@
             <li><a href="home.html" class="hover:text-cream transition-colors">Home</a></li>
             <li><a href="how-it-works.html" class="hover:text-cream transition-colors">How It Works</a></li>
             <li><a href="for-therapists.html" class="hover:text-cream transition-colors">For Therapists</a></li>
+            <li><a href="progress.html" class="hover:text-cream transition-colors">Progress</a></li>
           </ul>
         </div>
         <div>

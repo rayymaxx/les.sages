@@ -47,6 +47,9 @@
   .card-tilt:hover { transform: rotate(0deg) !important; }
   #mobile-menu { transition: opacity 300ms ease, transform 300ms ease; }
   #mobile-menu.open { opacity: 1; transform: translateY(0); pointer-events: auto; }
+  #lightbox { transition: opacity 300ms ease; }
+  #lightbox img { transition: transform 350ms cubic-bezier(.22,.61,.36,1); }
+  .gallery-img { cursor: zoom-in; }
 </style>
 </head>
 <body class="bg-paper text-ink font-body antialiased">
@@ -68,6 +71,7 @@
         <a href="home.html" class="text-ink">Home</a>
         <a href="how-it-works.html" class="hover:text-sagedeep transition-colors">How It Works</a>
         <a href="for-therapists.html" class="hover:text-sagedeep transition-colors">For Therapists</a>
+        <a href="progress.html" class="hover:text-sagedeep transition-colors">Progress</a>
       </div>
       <div class="flex items-center gap-3">
         <a href="how-it-works.html" class="hidden md:inline-flex rounded-full bg-sagedeep text-cream text-sm font-medium px-4 py-2 hover:bg-ink transition-colors duration-300">Find Support</a>
@@ -83,6 +87,7 @@
       <a href="home.html" class="text-sm font-semibold text-ink py-2 border-b border-ink/10">Home</a>
       <a href="how-it-works.html" class="text-sm font-medium text-ink/70 py-2 border-b border-ink/10 hover:text-sagedeep transition-colors">How It Works</a>
       <a href="for-therapists.html" class="text-sm font-medium text-ink/70 py-2 border-b border-ink/10 hover:text-sagedeep transition-colors">For Therapists</a>
+      <a href="progress.html" class="text-sm font-medium text-ink/70 py-2 border-b border-ink/10 hover:text-sagedeep transition-colors">Progress</a>
       <a href="how-it-works.html" class="mt-1 rounded-full bg-sagedeep text-cream text-sm font-medium px-4 py-3 text-center hover:bg-ink transition-colors duration-300">Find Support</a>
     </div>
   </header>
@@ -118,7 +123,7 @@
         </div>
       </div>
 
-      <div data-animate style="transition-delay:150ms" class="md:col-span-6">
+      <div data-animate style="transition-delay:150ms" class="md:col-span-6 hidden md:block">
         <img loading="lazy" src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=1200&auto=format&fit=crop&q=80" alt="Rolling green hills of Rwanda at sunrise" class="w-full object-cover shadow-xl" style="height: calc(100vh - 4.5rem - 2rem); max-height: 780px; min-height: 300px; border-radius: 2.5rem 0.75rem 2.5rem 0.75rem" />
       </div>
     </div>
@@ -151,6 +156,53 @@
           <p class="mt-2 text-sm text-cream/75 leading-relaxed">strategy: Therape is structured to align directly with Rwanda's National Strategic Plan for Mental Health.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM STATEMENT + MISSION -->
+  <section class="py-20 sm:py-28 relative overflow-hidden">
+    <svg class="absolute -top-10 -right-16 opacity-25 pointer-events-none" width="300" height="300" viewBox="0 0 420 420" fill="none">
+      <path class="knot-line" d="M210 20 C 320 20 400 100 400 210 C 400 320 320 400 210 400 C 100 400 20 320 20 210 C 20 130 70 70 150 50" stroke="#7A9B76" stroke-width="1.5" fill="none"/>
+    </svg>
+    <div class="max-w-6xl mx-auto px-5 sm:px-8 grid md:grid-cols-2 gap-10 md:gap-16 items-start">
+
+      <!-- Problem Statement -->
+      <div data-animate>
+        <p class="uppercase tracking-[0.2em] text-xs font-semibold text-clay mb-4">The Problem</p>
+        <h2 class="font-display text-3xl sm:text-4xl leading-snug mb-6">A crisis hiding in plain sight.</h2>
+        <p class="text-ink/75 leading-relaxed mb-4">
+          There is a serious mental health crisis among youth aged 14–25 and female genocide survivors in Rwanda, driven by intergenerational trauma, sexual and reproductive health issues, and family conflicts. A 2023 Rwanda Mental Health Survey revealed that <span class="font-semibold text-ink">35% of the population suffers from major depressive disorder</span> and <span class="font-semibold text-ink">27.9% from PTSD</span>. The prevalence of youth mental health disorders ranges from 10.2% to 20%.
+        </p>
+        <p class="text-ink/75 leading-relaxed mb-4">
+          Despite this, mental health awareness remains extremely low and services are largely unavailable at the community level. The Rwanda Biomedical Center (RBC) acknowledges a persistent treatment gap — even as Rwanda's National Mental Health Policy Framework and Strategic Plan (2023–2030) calls for equitable, community-based care.
+        </p>
+        <p class="text-ink/75 leading-relaxed">
+          For Rwanda to close this gap, mental health awareness programs and services must be active in all <span class="font-semibold text-ink">30 districts by 2030</span>.
+        </p>
+      </div>
+
+      <!-- Mission Statement -->
+      <div data-animate style="transition-delay:120ms" class="bg-ink text-cream rounded-3xl rounded-tr-md p-8 sm:p-10">
+        <p class="uppercase tracking-[0.2em] text-xs font-semibold text-sage mb-5">Our Mission</p>
+        <blockquote class="font-display text-2xl sm:text-3xl leading-snug text-cream mb-8">
+          &ldquo;Championing equitable mental health across Rwanda by dismantling community-level treatment gaps through localized awareness programs and accessible, inclusive care for youth and females going through mental health crisis.&rdquo;
+        </blockquote>
+        <div class="border-t border-cream/20 pt-6 grid grid-cols-3 gap-2 sm:gap-4">
+          <div>
+            <p class="font-display text-3xl text-ochre">35%</p>
+            <p class="text-xs text-cream/60 mt-1 leading-relaxed">suffer from major depressive disorder</p>
+          </div>
+          <div>
+            <p class="font-display text-3xl text-clay">27.9%</p>
+            <p class="text-xs text-cream/60 mt-1 leading-relaxed">live with PTSD</p>
+          </div>
+          <div>
+            <p class="font-display text-3xl text-sage">30</p>
+            <p class="text-xs text-cream/60 mt-1 leading-relaxed">districts to reach by 2030</p>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -309,27 +361,27 @@
       <div class="columns-2 md:columns-3 gap-4 space-y-4">
 
         <div data-animate class="break-inside-avoid overflow-hidden rounded-2xl rounded-tl-[2rem] shadow-sm group">
-          <img src="assets/activity - 1.jpeg" alt="Activity" loading="lazy" class="w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+          <img src="assets/activity - 1.jpeg" alt="Activity" loading="lazy" class="gallery-img w-full object-cover transition-transform duration-700 group-hover:scale-105" />
         </div>
 
         <div data-animate style="transition-delay:80ms" class="break-inside-avoid overflow-hidden rounded-2xl rounded-tr-[2rem] shadow-sm group">
-          <img src="assets/activity - 2.jpeg" alt="Activity" loading="lazy" class="w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+          <img src="assets/activity - 2.jpeg" alt="Activity" loading="lazy" class="gallery-img w-full object-cover transition-transform duration-700 group-hover:scale-105" />
         </div>
 
         <div data-animate style="transition-delay:160ms" class="break-inside-avoid overflow-hidden rounded-2xl rounded-br-[2rem] shadow-sm group">
-          <img src="assets/activity - 3.jpeg" alt="Activity" loading="lazy" class="w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+          <img src="assets/activity - 3.jpeg" alt="Activity" loading="lazy" class="gallery-img w-full object-cover transition-transform duration-700 group-hover:scale-105" />
         </div>
 
         <div data-animate style="transition-delay:240ms" class="break-inside-avoid overflow-hidden rounded-2xl rounded-bl-[2rem] shadow-sm group">
-          <img src="assets/activity - 4.jpeg" alt="Activity" loading="lazy" class="w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+          <img src="assets/activity - 4.jpeg" alt="Activity" loading="lazy" class="gallery-img w-full object-cover transition-transform duration-700 group-hover:scale-105" />
         </div>
 
         <div data-animate style="transition-delay:320ms" class="break-inside-avoid overflow-hidden rounded-2xl rounded-tl-[2rem] shadow-sm group">
-          <img src="assets/activity - 5.jpg" alt="Activity" loading="lazy" class="w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+          <img src="assets/activity - 5.jpg" alt="Activity" loading="lazy" class="gallery-img w-full object-cover transition-transform duration-700 group-hover:scale-105" />
         </div>
 
         <div data-animate style="transition-delay:400ms" class="break-inside-avoid overflow-hidden rounded-2xl rounded-br-[2rem] shadow-sm group">
-          <img src="assets/activity - 6.jpg" alt="Activity" loading="lazy" class="w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+          <img src="assets/activity - 6.jpg" alt="Activity" loading="lazy" class="gallery-img w-full object-cover transition-transform duration-700 group-hover:scale-105" />
         </div>
 
 
@@ -337,10 +389,24 @@
     </div>
   </section>
 
+  <!-- LIGHTBOX -->
+  <div id="lightbox" class="fixed inset-0 z-[300] bg-ink/90 backdrop-blur-sm hidden items-center justify-center p-4">
+    <button id="lightbox-close" class="absolute top-5 right-5 text-cream/70 hover:text-cream transition-colors" aria-label="Close">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <button id="lightbox-prev" class="absolute left-4 top-1/2 -translate-y-1/2 text-cream/70 hover:text-cream transition-colors" aria-label="Previous">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <img id="lightbox-img" src="" alt="" class="max-h-[90vh] max-w-full rounded-2xl shadow-2xl object-contain" />
+    <button id="lightbox-next" class="absolute right-4 top-1/2 -translate-y-1/2 text-cream/70 hover:text-cream transition-colors" aria-label="Next">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+  </div>
+
   <!-- FOOTER -->
   <footer class="bg-ink text-cream/70 pt-14 pb-8">
     <div class="max-w-6xl mx-auto px-5 sm:px-8">
-      <div class="grid sm:grid-cols-3 gap-10 pb-10 border-b border-cream/10">
+      <div class="grid sm:grid-cols-3 gap-6 pb-10 border-b border-cream/10">
         <div>
           <div class="flex items-center gap-2 mb-3">
             <img src="assets/favicon.png" alt="Therape" class="w-7 h-7" loading="lazy" />
@@ -355,6 +421,7 @@
             <li><a href="home.html" class="hover:text-cream transition-colors">Home</a></li>
             <li><a href="how-it-works.html" class="hover:text-cream transition-colors">How It Works</a></li>
             <li><a href="for-therapists.html" class="hover:text-cream transition-colors">For Therapists</a></li>
+            <li><a href="progress.html" class="hover:text-cream transition-colors">Progress</a></li>
           </ul>
         </div>
         <div>
@@ -374,6 +441,47 @@
     </div>
   </footer>
   <script>
+  const imgs = Array.from(document.querySelectorAll('.gallery-img'));
+  const lightbox = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lightbox-img');
+  let current = 0;
+
+  function openLightbox(index) {
+    current = index;
+    lbImg.src = imgs[current].src;
+    lbImg.alt = imgs[current].alt;
+    lightbox.classList.remove('hidden');
+    lightbox.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    lightbox.classList.add('hidden');
+    lightbox.classList.remove('flex');
+    document.body.style.overflow = '';
+  }
+  function navigate(dir) {
+    current = (current + dir + imgs.length) % imgs.length;
+    lbImg.style.transform = 'scale(0.92)';
+    setTimeout(() => {
+      lbImg.src = imgs[current].src;
+      lbImg.alt = imgs[current].alt;
+      lbImg.style.transform = 'scale(1)';
+    }, 150);
+  }
+
+  imgs.forEach((img, i) => img.addEventListener('click', () => openLightbox(i)));
+  document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+  document.getElementById('lightbox-prev').addEventListener('click', () => navigate(-1));
+  document.getElementById('lightbox-next').addEventListener('click', () => navigate(1));
+  lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('hidden')) {
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') navigate(-1);
+      if (e.key === 'ArrowRight') navigate(1);
+    }
+  });
+
   document.getElementById('yr').textContent = new Date().getFullYear();
 
 
